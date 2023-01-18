@@ -8,6 +8,7 @@ class UserProfile(models.Model):
     email = models.EmailField(max_length=50, null="True")
     address1 = models.TextField()
     address2 = models.TextField()
+    # birthdate = models.DateField( null=True)
 
     def __str__(self):
         return self.name

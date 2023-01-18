@@ -13,6 +13,8 @@ def HomePage(request):
         email = request.POST['email']
         address1 = request.POST['address1']
         address2 = request.POST['address2']
+        # birthdate = request.POST['birthdate']
+        # if
         prof = UserProfile.objects.create(
             name=name, photo=photo, mobile=mobile, email=email, address1=address1, address2=address2)
         prof.save()
@@ -62,3 +64,8 @@ def Delete(request, id):
     name = UserProfile.objects.get(id=id)
     name.delete()
     return redirect('allProfile')
+
+
+def view(request, id):
+    pro = UserProfile.objects.filter(id=id)
+    return render(request, 'view.html', locals())
